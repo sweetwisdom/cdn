@@ -1,0 +1,19 @@
+* {
+  box-sizing: border-box;
+  outline: none;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  user-select: none;
+  text-decoration: none;
+}
+
+.header {
+  height: 120px;
+  width: 100%;
+  background-color: #037ef3;
+  text-align: center;
+  color: white;
+  font-size: 30px;
+  line-height: 120px;
+}
