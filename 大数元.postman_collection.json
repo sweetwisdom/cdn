@@ -1,0 +1,257 @@
+{
+	"info": {
+		"_postman_id": "200eac07-0d46-4899-ad50-36c3f1551046",
+		"name": "大数元",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "获取 角色菜单",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "12333",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://{{baseurl}}/role/menu/list?name=zc",
+					"protocol": "http",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"role",
+						"menu",
+						"list"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "zc"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "失败",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "12333",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://{{baseurl}}/role/menu/list?name=zc",
+							"protocol": "http",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"role",
+								"menu",
+								"list"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "zc"
+								}
+							]
+						}
+					},
+					"code": 500,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"success\": false,\n    \"msg\":\"1111\"\n}"
+				},
+				{
+					"name": "成功",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "12333",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://{{baseurl}}/role/menu/list?name=zc",
+							"protocol": "http",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"role",
+								"menu",
+								"list"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "zc"
+								}
+							]
+						}
+					},
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"access_token\": \"eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX25hbWUiOiJhZG1pbiIsInN1YiI6ImFkbWluIiwiaWF0IjoxNjQ2Nzk0NzUxLCJleHAiOjE2NDY4ODExNTF9.psfb753N21Urg2n3-fnFGo61GwPgq88PvVnuSbhI_t4\"\n}"
+				}
+			]
+		},
+		{
+			"name": "角色列表",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseurl}}/role/list",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"role",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "新增角色",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "zc",
+							"type": "text"
+						},
+						{
+							"key": "age",
+							"value": "123",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{baseurl}}/role/list",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"role",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "新增json",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"zc\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseurl}}/role/json",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"role",
+						"json"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "获取菜单",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseurl}}/menu/list",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"menu",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "获取菜单数量",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseurl}}/menu",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"menu"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{toekn}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
