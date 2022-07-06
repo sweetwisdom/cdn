@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <!-- import CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css" />
+  </head>
+
+  <body>
+    <div id="app">
+      <el-button @click="hello">转换</el-button>
+    </div>
+  </body>
+
+  <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.9/vue.common.dev.js"></script>
+
+  <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+
+  <script>
+    new Vue({
+      el: "#app",
+      data: function () {
+        return { input: "1" };
+      },
+
+      methods: {
+        hello() {
+          alert("hello word");
+        },
+      },
+    });
+  </script>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <!-- import CSS -->
+    <title>github 转cdn 工具</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sweetwisdom/cdn@master/css/recet.css" />
+  </head>
+
+  <body>
+    <div id="app">
+      <div>
+        <h2 class="title">GitHub to jsdelivr</h2>
+        <div class="top">
+          <el-input v-model="url" placeholder="请输入gitHub文件地址"></el-input>
+          <el-button type="primary" @click="doUrl">转换</el-button>
+        </div>
+
+        <div class="resutl">
+          <el-result v-if="outUrl" icon="success" title="转换成功" subTitle="请根据提示进行操作">
+            <template slot="extra">
+              <p><el-button type="primary" size="medium" @click="copyToClipboard()">复制剪切板</el-button></p>
+              <p><a target="_blank" :href="outUrl">{{outUrl}}</a></p>
+              <iframe class="my-2" style="max-width: 500px; width: 100%" :src="outUrl" frameborder="0"></iframe>
+            </template>
+          </el-result>
+        </div>
+      </div>
+    </div>
+  </body>
+
+  <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.9/vue.js"></script>
+
+  <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+
+  <script>
+    new Vue({
+      el: "#app",
+      data: function () {
+        return { url: "https://github.com/sweetwisdom/cdn/blob/master/recet.css", outUrl: "" };
+      },
+
+      methods: {
+        doUrl() {
+          function convertUrl(url) {
+            var url = url.replace(/^(?:https?:\/\/)?(?:www\.)?(?:github\.com|github\.io)\/(.+?)\/(.+?)\/blob\/(.+?)\/(.+?)$/i, "https://cdn.jsdelivr.net/gh/$1/$2@$3/$4");
+            return url;
+          }
+          this.outUrl = convertUrl(this.url);
+        },
+        copyToClipboard() {
+          let text = this.outUrl;
+          var textArea = document.createElement("textarea");
+          textArea.value = text;
+          document.body.appendChild(textArea);
+          textArea.select();
+          document.execCommand("copy");
+          textArea.remove();
+          this.$message.success("复制成功!");
+        },
+      },
+    });
+  </script>
+</html>
+<style>
+  .top {
+    display: flex;
+    padding: 20px 10vw;
+
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+  }
+  .title {
+    text-align: center;
+    margin: 10px 0;
+  }
+</style>
